@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body>
+  <div id="container" class="container">
+  <section>
+    <p>My view has been loaded</p>
+  </section>
+  </div>
+
+  <script src="checkIfNew.js" type="text/javascript"></script>
+
+  <script type="text/javascript">
+
+    var container = document.getElementById("container");
+    //create a new watch on all divs
+      var divs = checkIfNew({"tag": "div"}, function(newList) {
+
+        console.log(newList);
+
+      });
+      //start watch
+      divs.loopList();
+      //create a div - this will trigger "divs"
+      document.body.appendChild(document.createElement("div"));
+
+      var sectionInContainer = checkIfNew({"tag": "section", "parent": container}, function(change) {
+
+        console.log(change);
+
+      });
+      sectionInContainer.loopList();
+
+      container.appendChild(document.createElement("section"));
+
+
+    </script>
+
+
+  </body>
+</html>
