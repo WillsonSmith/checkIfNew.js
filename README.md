@@ -20,25 +20,25 @@ This is because `checkIfNew` only watches the length, and changing of the final 
 
 You use it by assigning a tag type (div, img, a, section etc.), and giving it a callback that returns the current array of DOM nodes available on the page every time one is added or removed. 
 
-	```
+
 	var divs = checkIfNew({"tag": "div"}, function(newList) {
 
 	  console.log(newList);
 
 	});
 	divs.loopList();
-	```
+
 
 to assign a parent element to use as a scope for your tags you add a "parent" to the first argument's object. For example:
 
-	```
+
 	var container = document.getElementById("container");
 	var sectionInContainer = checkIfNew({"tag": "section", "parent": container}, function(change) {
 
         console.log(change);
 
       });
-	```
+
 will look for changes to all `<section>`s within the parent container with the ID `#container` 
 
 
