@@ -2,7 +2,7 @@
 
 This small function was built with the intention to watch for additions or subtractions to elements of a tag name in the DOM. It does not notify you if you change an element, or if you replace elements by removing them and adding an element. Since this uses `requestAnimationFrame` for a loop: there is a chance this will fire IF these events take longer than it takes for the browser to fire `requestAnimationFrame` (60fps). Although it does not work by switching DOM nodes that fall before the final node in the list, if you remove an element, and add one to the end, it will be considered changed. So if you take the first instance of a `div` and append it to the end of the document, `checkIfNew` will say the list has changed. eg. 
 
-```document.body.appendChild(document.querySelector("div"))```
+`document.body.appendChild(document.querySelector("div"))`
 
 will report a change. 
 
